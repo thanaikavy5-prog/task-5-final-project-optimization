@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>My Portfolio</title>
+
+<style>
+
+body{
+font-family:Arial;
+margin:0;
+background:#f5f5f5;
+text-align:center;
+}
+
+nav{
+background:#222;
+color:white;
+padding:15px;
+}
+
+nav a{
+color:white;
+margin:10px;
+text-decoration:none;
+}
+
+.hero{
+background:#007bff;
+color:white;
+padding:60px;
+}
+
+.skills{
+margin:40px;
+}
+
+.skill{
+display:inline-block;
+background:white;
+padding:15px;
+margin:10px;
+border-radius:8px;
+box-shadow:0 0 10px gray;
+}
+
+.contact{
+margin:40px;
+}
+
+input,textarea{
+display:block;
+margin:10px auto;
+padding:10px;
+width:250px;
+}
+
+button{
+padding:10px 20px;
+background:#007bff;
+color:white;
+border:none;
+border-radius:5px;
+cursor:pointer;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<nav>
+<a href="#">Home</a>
+<a href="#skills">Skills</a>
+<a href="#contact">Contact</a>
+</nav>
+
+<div class="hero">
+
+<h1>Hello, I'm a Web Developer</h1>
+
+<p>I build websites using HTML, CSS and JavaScript</p>
+
+<button onclick="viewProjects()">View Projects</button>
+
+</div>
+
+<div class="skills" id="skills">
+
+<h2>My Skills</h2>
+
+<div class="skill">HTML</div>
+<div class="skill">CSS</div>
+<div class="skill">JavaScript</div>
+
+</div>
+
+<div class="contact" id="contact">
+
+<h2>Contact Me</h2>
+
+<input type="text" placeholder="Your Name">
+
+<input type="email" placeholder="Email">
+
+<textarea placeholder="Message"></textarea>
+
+<button onclick="sendMessage()">Send</button>
+
+</div>
+
+<script src="portfolio.js"></script>
+
+</body>
+</html>

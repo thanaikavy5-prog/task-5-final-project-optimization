@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Weather App</title>
+
+<style>
+body{
+font-family:Arial;
+text-align:center;
+background:#e3f2fd;
+padding-top:50px;
+}
+
+input{
+padding:10px;
+width:200px;
+}
+
+button{
+padding:10px 15px;
+background:#2196f3;
+color:white;
+border:none;
+cursor:pointer;
+}
+
+#result{
+margin-top:20px;
+font-size:20px;
+}
+</style>
+</head>
+
+<body>
+
+<h2>Weather App</h2>
+
+<input type="text" id="city" placeholder="Enter City Name">
+<br><br>
+<button onclick="getWeather()">Search Weather</button>
+
+<div id="result"></div>
+
+<script>
+
+function getWeather(){
+
+var city=document.getElementById("city").value;
+
+if(city==""){
+document.getElementById("result").innerHTML="Enter City Name";
+return;
+}
+
+document.getElementById("result").innerHTML="Searching...";
+
+var apiKey="20d31ce68cf59abbd58fdecfc89304fa";
+
+fetch("https://api.openweathermap.org/data/2.5/weather?q="+city+"&appid="+apiKey+"&units=metric")
+.then(res=>res.json())
+.then(data=>{
+
+if(data.cod!=200){
+document.getElementById("result").innerHTML="City Not Found";
+return;
+}
+
+document.getElementById("result").innerHTML=
+"City : "+data.name+
+"<br>Temperature : "+data.main.temp+" °C"+
+"<br>Weather : "+data.weather[0].main;
+
+})
+.catch(()=>{
+document.getElementById("result").innerHTML="Network Error";
+});
+
+}
+
+</script>
+
+</body>
+</html>
